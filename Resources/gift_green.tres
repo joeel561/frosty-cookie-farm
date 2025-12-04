@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://du45amnlawhrk"]
+
+[ext_resource type="Texture2D" uid="uid://b86sjqvsry70m" path="res://Gift_green_1.png" id="1_ljhe7"]
+[ext_resource type="Script" uid="uid://c51f6ssx64xs8" path="res://ItemData.gd" id="2_014h0"]
+
+[resource]
+script = ExtResource("2_014h0")
+item_name = "FlowerOne"
+item_texture = ExtResource("1_ljhe7")
+metadata/_custom_type_script = "uid://c51f6ssx64xs8"

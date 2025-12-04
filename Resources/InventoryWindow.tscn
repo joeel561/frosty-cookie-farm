@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=3 uid="uid://emgcfthkkffo"]
+
+[ext_resource type="Resource" uid="uid://dex5h716vl0oy" path="res://Resources/TestInventory.tres" id="1_sy06v"]
+
+[sub_resource type="GDScript" id="GDScript_rqgle"]
+script/source = "extends Control
+
+@export var inventory_data : InventoryData
+var current_dragged_item_data : Dictionary
+
+func _process(delta: float) -> void:
+	if not has_node(\"ItemDrag\"):
+		return
+		
+	get_node(\"ItemDrag\").position = get_global_mouse_position() - get_node(\"ItemDrag\").size / 2
+
+
+func _ready() -> void: 
+	update_inventory_data()
+	connect_signals()
+	
+	
+func connect_signals() -> void: 
+	GlobalSignals.connect(\"UpdateInventory\", update_inventory_data)
+	
+func update_inventory_data() -> void: 
+	for slot in %SlotGroup.get_children():
+		slot.queue_free()
+		
+	for item_data in inventory_data.item_data: 
+		var new_slot = preload(\"res://Resources/Slot.tscn\").instantiate()
+		new_slot.current_item = item_data
+		%SlotGroup.add_child(new_slot)
+	
+func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed(\"mouse_left\"):
+		var hovered_node = get_viewport().gui_get_hovered_control()
+		
+		if hovered_node is Slot:
+			var current_index = hovered_node.get_index()
+			
+			if not inventory_data.item_data[current_index]:
+				return
+			create_drag_item(current_index)
+			inventory_data.item_data[current_index] = null
+			GlobalSignals.UpdateInventory.emit()
+			
+	if not current_dragged_item_data:
+		return
+
+	if event.is_action_released(\"mouse_left\"):
+		var hovered_node = get_viewport().gui_get_hovered_control()
+		var item = current_dragged_item_data.get(\"Item\")
+		var index = current_dragged_item_data.get(\"Index\")
+		
+		if has_node(\"ItemDrag\"):
+			delete_dragged_item()
+			
+		if not hovered_node is Slot: 
+			inventory_data.item_data[index] = item
+			GlobalSignals.UpdateInventory.emit()
+			return
+			
+		if inventory_data.item_data[hovered_node.get_index()]:
+			inventory_data.item_data[index] = item
+			GlobalSignals.UpdateInventory.emit()
+			return
+			
+
+			
+		inventory_data.item_data[hovered_node.get_index()] = item 
+		current_dragged_item_data.clear()
+		GlobalSignals.UpdateInventory.emit()
+			
+			
+func create_drag_item(Index : int) -> void: 
+	current_dragged_item_data = {\"Item\" : inventory_data.item_data[Index], \"Index\" : Index}
+	
+	var new_drag_item : TextureRect = TextureRect.new()
+	new_drag_item.texture = inventory_data.item_data[Index].item_texture
+	new_drag_item.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	new_drag_item.name = \"ItemDrag\"
+	add_child(new_drag_item)
+	
+
+func delete_dragged_item() -> void: 
+	get_node(\"ItemDrag\").queue_free()
+			
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8jhkm"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[node name="InventoryWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 48.0
+script = SubResource("GDScript_rqgle")
+inventory_data = ExtResource("1_sy06v")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 107.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8jhkm")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Inventory"
+
+[node name="SlotGroup" type="GridContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 9
