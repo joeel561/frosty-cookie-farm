@@ -2,7 +2,7 @@ extends Node
 
 signal UpdateInventory
 
-var plantSelected = 1 #flowerPurple
+var plantSelected: int = 1 #flowerPurple
 
-var numOfFlowerPurple = 0 
-var numOfFlowerWhite = 0 
+var numOfFlowerPurple: int = 0 
+var numOfFlowerWhite: int = 0 

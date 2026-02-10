@@ -1,12 +1,11 @@
-extends Control
+class_name DragController extends Control
 
-class_name DragController
+const SLOT_SCENE := preload("res://Resources/Slot.tscn")
 
 @export var inventory_data: InventoryData
 @export var hotbar_data: HotbarData
 
 var current_drag := {}
-const SLOT_SCENE := preload("res://Resources/Slot.tscn")
 
 func get_slot(kind: String, index: int) -> SlotData:
 	if kind == "inventory":
@@ -16,7 +15,6 @@ func get_slot(kind: String, index: int) -> SlotData:
 		return hotbar_data.slots[index]
 	
 	return null
-	
 	
 func start_drag(from_slot: Slot) -> void: 
 	var from_kind := from_slot.owner_kind

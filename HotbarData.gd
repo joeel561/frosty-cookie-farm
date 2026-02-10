@@ -1,17 +1,13 @@
-extends Resource
-class_name HotbarData
+class_name HotbarData extends Resource
 
-signal update 
+signal update
+
 @export var size: int = 9
 @export var slots: Array[SlotData] = []
 
-func ensure_initialized() -> void:
-	while slots.size() < size: 
+func _init():
+	while slots.size() < size:
 		slots.append(SlotData.new())
-		
-	for i in range(slots.size()):
-		if slots[i] == null:
-			slots[i] = SlotData.new()
 			
 func insertHotbar(item: ItemData) -> void:
 	for slot in slots:
@@ -28,4 +24,3 @@ func insertHotbar(item: ItemData) -> void:
 			return
 
 	print("Inventar ist voll")
-	update.emit()

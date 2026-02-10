@@ -1,7 +1,7 @@
-extends Resource
-class_name InventoryData
+class_name InventoryData extends Resource
 
 signal update
+
 @export var slots: Array[SlotData] = []
 @export var size: int = 15
 

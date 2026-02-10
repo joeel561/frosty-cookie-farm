@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ku45cliir5gg" path="res://winter_global.png" id="4_ia1h2"]
 [ext_resource type="Texture2D" uid="uid://dfsn6wxbe4amx" path="res://SnowMen.png" id="5_sm0xg"]
 [ext_resource type="Texture2D" uid="uid://dylqohv6f760m" path="res://Bonfire.png" id="6_3scwm"]
+[ext_resource type="Resource" uid="uid://cy72ppb2bd423" path="res://playerHotbar.tres" id="7_vy1rd"]
 [ext_resource type="PackedScene" uid="uid://bi2ana22rxuil" path="res://white_tree.tscn" id="8_kd0rm"]
 [ext_resource type="PackedScene" uid="uid://ccbf5lkb40kmt" path="res://Resources/flower.tscn" id="9_vmank"]
 [ext_resource type="PackedScene" uid="uid://48v5vhuoh0hn" path="res://flower_seed_purple.tscn" id="10_l7g3u"]
@@ -3245,6 +3246,7 @@ tile_set = SubResource("TileSet_kd0rm")
 [node name="Player" parent="env" unique_id=295266339 instance=ExtResource("2_h4chw")]
 y_sort_enabled = true
 position = Vector2(249, 141)
+hotbar = ExtResource("7_vy1rd")
 
 [node name="Campfire" type="AnimatedSprite2D" parent="env" unique_id=1701692515]
 y_sort_enabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://crm08ijdbv4to"]
+[gd_scene format=3 uid="uid://crm08ijdbv4to"]
 
 [ext_resource type="Script" uid="uid://cj8eu4aqxpyro" path="res://flower_seed_white.gd" id="1_nkoty"]
 [ext_resource type="Texture2D" uid="uid://bcofblguvhsgw" path="res://Resources/Sprites/flowerSeedWhite.png" id="2_p2yay"]
@@ -21,15 +21,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hfec1"]
 radius = 5.0
 
-[node name="flowerSeedWhite" type="StaticBody2D"]
+[node name="flowerSeedWhite" type="Area2D" unique_id=133365552]
 script = ExtResource("1_nkoty")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=812080508]
 sprite_frames = SubResource("SpriteFrames_p6gc5")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2128736860]
+position = Vector2(-0.5, 0)
 shape = SubResource("CircleShape2D_hfec1")
 
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

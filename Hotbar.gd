@@ -1,6 +1,4 @@
-extends Control
-
-class_name Hotbar 
+class_name Hotbar extends Control
 
 @export var inventory_data: InventoryData
 @export var hotbar_size: int = 9
@@ -25,7 +23,6 @@ func build_hotbar() -> void:
 		slot_ui.slot_index = inv_index
 		slot_ui.set_slot(inventory_data.slots[inv_index])
 		%HotbarSlots.add_child(slot_ui)
-		
 		
 func update_hotbar() -> void: 
 	for i in range(%HotbarSlots.get_child_count()):

@@ -41,6 +41,6 @@ func get_direction_name() -> String:
 	return "down" 
 	
 	
-func collect(item):
+func collect(item) -> void:
 	hotbar.insertHotbar(item)
  

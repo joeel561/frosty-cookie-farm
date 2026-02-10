@@ -1,6 +1,4 @@
-extends Panel
-
-class_name Slot
+class_name Slot extends Panel
 
 signal drag_started(slot: Slot)
 signal drag_released(slot: Slot)

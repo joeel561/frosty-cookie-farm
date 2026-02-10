@@ -1,12 +1,10 @@
-extends Control
-class_name HotbarUI
+class_name HotbarUI extends Control
 
 @export var hotbar_data: HotbarData
 @export var drag_controller: DragController
 const SLOT_SCENE := preload("res://Resources/Slot.tscn")
 
-func _ready() -> void:
-	hotbar_data.ensure_initialized()
+func _ready():
 	hotbar_data.update.connect(update_hotbar_ui)
 	update_hotbar_ui()
 

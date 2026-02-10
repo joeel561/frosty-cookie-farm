@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HotbarData" load_steps=3 format=3 uid="uid://cy72ppb2bd423"]
+[gd_resource type="Resource" script_class="HotbarData" format=3 uid="uid://cy72ppb2bd423"]
 
 [ext_resource type="Script" uid="uid://d30183woggy2e" path="res://HotbarData.gd" id="1_05ly1"]
 [ext_resource type="Script" uid="uid://cap7pasfcj6s2" path="res://Resources/SlotData.gd" id="2_njm6f"]

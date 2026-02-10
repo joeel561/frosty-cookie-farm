@@ -1,12 +1,15 @@
-extends StaticBody2D
+extends Node2D
+
+var animation_player: AnimationPlayer = null
 
 func _ready():
+	animation_player = get_node("AnimationPlayer") as AnimationPlayer
 	dropItem()
 	
 func dropItem():
-	$AnimationPlayer.play("drop_item")
+	animation_player.play("drop_item")
 	await get_tree().create_timer(0.5).timeout
-	$AnimationPlayer.play("idle")
+	animation_player.play("idle")
 	await get_tree().create_timer(5.0).timeout
-	$AnimationPlayer.play("fade")
+	animation_player.play("fade")
 	await get_tree().create_timer(0.3).timeout

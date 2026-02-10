@@ -12,7 +12,6 @@ func _process(delta: float) -> void:
 			close()
 		else: 
 			open()
-			
 
 func _ready() -> void: 
 	inventory_data.ensure_initialized()

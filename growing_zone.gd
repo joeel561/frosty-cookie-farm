@@ -1,37 +1,39 @@
-extends StaticBody2D
+extends Area2D
 
-var plant = GlobalSignals.plantSelected
-var plantGrowing = false
-var plantGrown = false 
-var player_in_area = false
+var plant: int = GlobalSignals.plantSelected
+var plantGrowing: bool = false
+var plantGrown: bool = false 
 
-var flowerPurpleItem = preload("res://flower_purple_collectable.tscn")
-var flowerWhiteItem = preload("res://flower_purple_collectable.tscn")
+var flowerPurpleItem: Resource = preload("res://flower_purple_collectable.tscn")
+var flowerWhiteItem: Resource = preload("res://flower_purple_collectable.tscn")
 
 @export var purple_item: ItemData
 @export var white_item: ItemData
 
-var player = null
+var player: CharacterBody2D = null
 
-func _physics_process(delta: float) -> void:
+func _ready():
+	player = get_node("../env/Player") as CharacterBody2D
+
+func _physics_process(delta: float):
 	if plantGrowing == false: 
 		plant = GlobalSignals.plantSelected
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_entered(area: Area2D):
 	if not plantGrowing: 
 		if plant == 1:
 			plantGrowing = true
+			$plant.visible = true;
 			$flowerPurpleTimer.start()
 			$plant.play("flowerPurpleGrowing")
 		if plant == 2: 
 			plantGrowing = true
+			$plant.visible = true;
 			$flowerWhiteTimer.start()
 			$plant.play("flowerWhiteGrowing")
-			
 		else: 
 			print('plant is already growing here')
 
-		
 func _on_flower_purple_timer_timeout() -> void:
 	var flowerPurple = $plant
 	if flowerPurple.frame == 0:
@@ -44,10 +46,8 @@ func _on_flower_purple_timer_timeout() -> void:
 		flowerPurple.frame = 3
 		plantGrown = true
 
-
 func _on_flower_white_timer_timeout() -> void:
 	var flowerWhite = $plant
-	
 	if flowerWhite.frame == 0:
 		flowerWhite.frame = 1
 		$flowerWhiteTimer.start()
@@ -58,10 +58,9 @@ func _on_flower_white_timer_timeout() -> void:
 		flowerWhite.frame = 3
 		plantGrown = true
 
-
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("mouse_left"):
-		if plantGrown && player_in_area: 
+func _on_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("mouse_left"):
+		if plantGrown && is_player_in_area(): 
 			if plant == 1:
 				GlobalSignals.numOfFlowerPurple += 1
 				plantGrowing = false
@@ -76,11 +75,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				pass
 				
 			drop_item(plant)
-		
-func drop_item(plant: int):
+
+func drop_item(plant: int) -> void:
 	if plant == 1: 
 		var flowerPurple_instance = flowerPurpleItem.instantiate()
 		flowerPurple_instance.global_position = $Marker2D.global_position
+		purple_item.item_name 
 		player.collect(purple_item)
 	
 		get_parent().add_child(flowerPurple_instance)
@@ -95,14 +95,5 @@ func drop_item(plant: int):
 
 		await get_tree().create_timer(3).timeout
 
-
-func _on_pick_up_body_entered(body: Node2D) -> void:
-	print(body.is_in_group("player"))
-	if body.is_in_group("player"):
-		player_in_area = true
-		player = body
-		
-
-func _on_pick_up_body_exited(body: Node2D) -> void:
-	player_in_area = false
-	player = null
+func is_player_in_area() -> bool:
+	return player.position.distance_to(position) <= 40.0
