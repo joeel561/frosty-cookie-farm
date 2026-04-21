@@ -5,8 +5,7 @@ class_name HotbarUI
 @export var drag_controller: DragController
 const SLOT_SCENE := preload("res://Resources/Slot.tscn")
 
-func _ready() -> void:
-	hotbar_data.ensure_initialized()
+func _ready():
 	hotbar_data.update.connect(update_hotbar_ui)
 	update_hotbar_ui()
 

@@ -1,13 +1,9 @@
-[gd_scene format=3 uid="uid://qpjb5ett6scc"]
+[gd_scene format=3 uid="uid://b58l2luvq0ae6"]
 
 [ext_resource type="Script" uid="uid://ddxl81f1jeppq" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://dw5i3w1waua63" path="res://Resources/characters/character/Swashbuckler_idle.png" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bey73ny4l1mkm" path="res://Resources/characters/character/Swashbuckler_jump.png" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dwmwq5pqt2hpi" path="res://Resources/characters/character/Swashbuckler_walk.png" id="3_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://bcavfxosnct0s" path="res://Resources/characters/character/Swashbuckler_woodcutting.png" id="4_2hs0m"]
-[ext_resource type="Script" uid="uid://bu80uomd8h2u2" path="res://scripts/state_machine/node_finite_state_machine.gd" id="6_1jxqw"]
-[ext_resource type="Script" uid="uid://8aeojqvgv4xo" path="res://scripts/character/idle.gd" id="7_1jxqw"]
-[ext_resource type="Script" uid="uid://bg4c6sdjwj85y" path="res://scripts/character/walk.gd" id="8_dw050"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
 atlas = ExtResource("2_i3pqv")
@@ -89,26 +85,6 @@ region = Rect2(0, 96, 48, 48)
 atlas = ExtResource("3_hqtel")
 region = Rect2(0, 144, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_331ug"]
-atlas = ExtResource("4_2hs0m")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ny14h"]
-atlas = ExtResource("4_2hs0m")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ibah8"]
-atlas = ExtResource("4_2hs0m")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3iwfv"]
-atlas = ExtResource("4_2hs0m")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qwsg1"]
-atlas = ExtResource("4_2hs0m")
-region = Rect2(192, 0, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
 atlas = ExtResource("3_i3pqv")
 region = Rect2(0, 0, 48, 48)
@@ -172,6 +148,10 @@ region = Rect2(96, 144, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tkwlq"]
 atlas = ExtResource("3_i3pqv")
 region = Rect2(144, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b88wv"]
+atlas = ExtResource("3_hqtel")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
 animations = [{
@@ -277,26 +257,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_331ug")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ny14h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ibah8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3iwfv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qwsg1")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ivps1")
 }, {
 "duration": 1.0,
@@ -358,6 +318,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tkwlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b88wv")
 }],
 "loop": true,
 "name": &"walk_up",
@@ -375,7 +338,7 @@ script = ExtResource("1_onrkg")
 texture_filter = 1
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_ivps1")
-animation = &"walk_up"
+animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=37737424]
@@ -383,17 +346,3 @@ shape = SubResource("CircleShape2D_hqtel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1701499312]
 zoom = Vector2(5, 5)
-
-[node name="StateMachine" type="Node" parent="." unique_id=1301853722 node_paths=PackedStringArray("initial_node_state")]
-script = ExtResource("6_1jxqw")
-initial_node_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" unique_id=708857891 node_paths=PackedStringArray("player", "animated_sprite_2d")]
-script = ExtResource("7_1jxqw")
-player = NodePath("../..")
-animated_sprite_2d = NodePath("../../AnimatedSprite2D")
-
-[node name="Walk" type="Node" parent="StateMachine" unique_id=59498238 node_paths=PackedStringArray("player", "animated_sprite_2d")]
-script = ExtResource("8_dw050")
-player = NodePath("../..")
-animated_sprite_2d = NodePath("../../AnimatedSprite2D")

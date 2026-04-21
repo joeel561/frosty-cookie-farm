@@ -1,10 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0w5rtfp06teq"]
+[gd_scene format=3 uid="uid://c0w5rtfp06teq"]
 
 [ext_resource type="Script" uid="uid://bekhkositnrwy" path="res://growing_zone.gd" id="1_3kj68"]
 [ext_resource type="Texture2D" uid="uid://lny5kflw5o6m" path="res://Resources/Sprites/growingzone.png" id="1_n6jss"]
 [ext_resource type="Texture2D" uid="uid://by11kjp4i4tdw" path="res://flower-purple.png" id="2_3kj68"]
 [ext_resource type="Resource" uid="uid://t1nvy5q7g7ac" path="res://Resources/Items/flowerPurple.tres" id="2_tsn3r"]
+[ext_resource type="Resource" uid="uid://eax6d3jef7ax" path="res://Resources/Items/bell.tres" id="3_y8uv2"]
+[ext_resource type="Resource" uid="uid://bl5aopwp5xwfm" path="res://Resources/Items/flowerSeedWhite.tres" id="4_o6yf6"]
 [ext_resource type="Texture2D" uid="uid://bsi5j5rhe6r3h" path="res://RPG snow tileset (full).png" id="4_u5nyg"]
+[ext_resource type="Resource" uid="uid://du45amnlawhrk" path="res://Resources/Items/gift_green.tres" id="5_8io8s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5nyg"]
 atlas = ExtResource("1_n6jss")
@@ -108,34 +111,38 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tsn3r"]
 radius = 41.01219
 
-[node name="growingZone" type="StaticBody2D"]
+[node name="growingZone" type="StaticBody2D" unique_id=473408445]
 script = ExtResource("1_3kj68")
 purple_item = ExtResource("2_tsn3r")
 white_item = ExtResource("2_tsn3r")
+bell = ExtResource("3_y8uv2")
+flowerSeedPurple1 = ExtResource("2_tsn3r")
+flowerSeedWhite1 = ExtResource("4_o6yf6")
+gift_green = ExtResource("5_8io8s")
 
-[node name="hoedland" type="AnimatedSprite2D" parent="."]
+[node name="hoedland" type="AnimatedSprite2D" parent="." unique_id=1619346644]
 sprite_frames = SubResource("SpriteFrames_tsn3r")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=950162198]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1205384551]
 shape = SubResource("RectangleShape2D_y8uv2")
 
-[node name="plant" type="AnimatedSprite2D" parent="."]
+[node name="plant" type="AnimatedSprite2D" parent="." unique_id=1128819995]
 sprite_frames = SubResource("SpriteFrames_qij1w")
 animation = &"none"
 
-[node name="flowerPurpleTimer" type="Timer" parent="."]
+[node name="flowerPurpleTimer" type="Timer" parent="." unique_id=1406088461]
 
-[node name="flowerWhiteTimer" type="Timer" parent="."]
+[node name="flowerWhiteTimer" type="Timer" parent="." unique_id=2004186213]
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2091856295]
 position = Vector2(7, 6)
 
-[node name="PickUp" type="Area2D" parent="."]
+[node name="PickUp" type="Area2D" parent="." unique_id=680757323]
 collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUp"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUp" unique_id=1195781167]
 shape = SubResource("CircleShape2D_tsn3r")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

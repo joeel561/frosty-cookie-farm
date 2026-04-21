@@ -14,8 +14,7 @@ func _process(delta: float) -> void:
 			open()
 			
 
-func _ready() -> void: 
-	inventory_data.ensure_initialized()
+func _ready(): 
 	inventory_data.update.connect(update_inventory_data)
 
 	close()

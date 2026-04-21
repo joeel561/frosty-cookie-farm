@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://05h5nvupgmnj"]
+
+[ext_resource type="Texture2D" uid="uid://dkhk8buo4ptxq" path="res://RPG tileset (full)-export.png" id="1_a8qts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyb6m"]
+atlas = ExtResource("1_a8qts")
+region = Rect2(86.3677, 127.19537, 19.978165, 32.946426)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8qts"]
+radius = 4.0
+
+[node name="SmallTree" type="Sprite2D" unique_id=969450165]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(0, -11)
+texture = SubResource("AtlasTexture_xyb6m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1539674432]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2021435096]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_a8qts")

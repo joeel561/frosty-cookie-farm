@@ -10,6 +10,10 @@ var flowerWhiteItem = preload("res://flower_purple_collectable.tscn")
 
 @export var purple_item: ItemData
 @export var white_item: ItemData
+@export var bell: ItemData
+@export var flowerSeedPurple1: ItemData
+@export var flowerSeedWhite1: ItemData
+@export var gift_green: ItemData
 
 var player = null
 
@@ -82,6 +86,10 @@ func drop_item(plant: int):
 		var flowerPurple_instance = flowerPurpleItem.instantiate()
 		flowerPurple_instance.global_position = $Marker2D.global_position
 		player.collect(purple_item)
+		player.collect(bell)
+		player.collect(flowerSeedPurple1)
+		player.collect(gift_green)
+		player.collect(flowerSeedWhite1)
 	
 		get_parent().add_child(flowerPurple_instance)
 

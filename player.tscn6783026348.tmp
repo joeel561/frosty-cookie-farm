@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dwmwq5pqt2hpi" path="res://Resources/characters/character/Swashbuckler_walk.png" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bcavfxosnct0s" path="res://Resources/characters/character/Swashbuckler_woodcutting.png" id="4_2hs0m"]
 [ext_resource type="Script" uid="uid://bu80uomd8h2u2" path="res://scripts/state_machine/node_finite_state_machine.gd" id="6_1jxqw"]
+[ext_resource type="Script" uid="uid://fswwdgfgoqbv" path="res://scripts/state_machine/state_machine_controller.gd" id="6_b26j0"]
 [ext_resource type="Script" uid="uid://8aeojqvgv4xo" path="res://scripts/character/idle.gd" id="7_1jxqw"]
 [ext_resource type="Script" uid="uid://bg4c6sdjwj85y" path="res://scripts/character/walk.gd" id="8_dw050"]
 
@@ -172,6 +173,10 @@ region = Rect2(96, 144, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tkwlq"]
 atlas = ExtResource("3_i3pqv")
 region = Rect2(144, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b88wv"]
+atlas = ExtResource("3_hqtel")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
 animations = [{
@@ -358,6 +363,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tkwlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b88wv")
 }],
 "loop": true,
 "name": &"walk_up",
@@ -375,14 +383,19 @@ script = ExtResource("1_onrkg")
 texture_filter = 1
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_ivps1")
-animation = &"walk_up"
+animation = &"new_animation"
 autoplay = "idle_down"
+frame = 2
+frame_progress = 0.25071666
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=37737424]
 shape = SubResource("CircleShape2D_hqtel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1701499312]
 zoom = Vector2(5, 5)
+
+[node name="StateMachineController" type="Node" parent="." unique_id=695738705]
+script = ExtResource("6_b26j0")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1301853722 node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("6_1jxqw")
@@ -393,7 +406,5 @@ script = ExtResource("7_1jxqw")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
-[node name="Walk" type="Node" parent="StateMachine" unique_id=59498238 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Walk" type="Node" parent="StateMachine" unique_id=59498238]
 script = ExtResource("8_dw050")
-player = NodePath("../..")
-animated_sprite_2d = NodePath("../../AnimatedSprite2D")

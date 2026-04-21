@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b0henac03861r"]
+[gd_scene format=3 uid="uid://emgcfthkkffo"]
 
 [ext_resource type="Script" uid="uid://bwebvl0gww585" path="res://Resources/InventoryWindow.gd" id="1_8jhkm"]
 [ext_resource type="Resource" uid="uid://bg04808q25l4i" path="res://Resources/playerInv.tres" id="2_ndux4"]

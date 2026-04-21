@@ -5,7 +5,7 @@ signal update
 @export var slots: Array[SlotData] = []
 @export var size: int = 15
 
-func ensure_initialized() -> void:
+func _init():
 	while slots.size() < size: 
 		slots.append(SlotData.new())
 		
