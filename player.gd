@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite = $AnimatedSprite2D
+@export var current_tool: DataTypes.Tools = DataTypes.Tools.None
 
 @export var inv: InventoryData
 @export var hotbar: HotbarData

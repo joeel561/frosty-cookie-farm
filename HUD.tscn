@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckrm01d38df1x" path="res://Hotbar.tscn" id="1_k5de2"]
 [ext_resource type="Resource" uid="uid://cy72ppb2bd423" path="res://playerHotbar.tres" id="2_ne771"]
 [ext_resource type="Resource" uid="uid://bg04808q25l4i" path="res://Resources/playerInv.tres" id="2_xxqia"]
-[ext_resource type="PackedScene" uid="uid://emgcfthkkffo" path="res://Resources/InventoryWindow.tscn" id="3_vow1y"]
+[ext_resource type="PackedScene" uid="uid://emgcfthkkffo" path="res://scenes/inventory/InventoryWindow.tscn" id="3_vow1y"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1198797732]
 

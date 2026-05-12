@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://4xj447swxbtc"]
+
+[ext_resource type="Texture2D" uid="uid://dkhk8buo4ptxq" path="res://RPG tileset (full)-export.png" id="1_afya7"]
+[ext_resource type="PackedScene" uid="uid://dsy1ng6y42j7s" path="res://scenes/components/collectable_component.tscn" id="2_mcehs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6utc2"]
+atlas = ExtResource("1_afya7")
+region = Rect2(82.19963, 6.483032, 8.152504, 7.8174706)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2opkv"]
+radius = 3.1622777
+
+[node name="Stone" type="Sprite2D" unique_id=1900016519]
+texture = SubResource("AtlasTexture_6utc2")
+
+[node name="CollectableComponent" parent="." unique_id=1870427 instance=ExtResource("2_mcehs")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=1735039624]
+shape = SubResource("CircleShape2D_2opkv")

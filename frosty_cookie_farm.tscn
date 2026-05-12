@@ -3,14 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://bsi5j5rhe6r3h" path="res://RPG snow tileset (full).png" id="1_drles"]
 [ext_resource type="Texture2D" uid="uid://bnbdt4nha6e1h" path="res://RPG tileset (full).png" id="2_b56be"]
 [ext_resource type="PackedScene" uid="uid://qpjb5ett6scc" path="res://player.tscn" id="2_h4chw"]
+[ext_resource type="PackedScene" uid="uid://lp33in04dqqr" path="res://scenes/objects/trees/small_purple_tree.tscn" id="5_l7g3u"]
+[ext_resource type="Shader" uid="uid://cj4ktjd03pwyc" path="res://scenes/objects/trees/tree_shader.gdshader" id="6_4juqx"]
+[ext_resource type="PackedScene" uid="uid://3b08dc1kpxyw" path="res://scenes/objects/trees/small_dark_green_tree.tscn" id="6_rswja"]
 [ext_resource type="Resource" uid="uid://bg04808q25l4i" path="res://Resources/playerInv.tres" id="7_1rdvk"]
+[ext_resource type="PackedScene" uid="uid://dmrsiioqluman" path="res://scenes/objects/trees/big_purple_tree.tscn" id="7_b56be"]
+[ext_resource type="PackedScene" uid="uid://b0e1cusnxvnbn" path="res://scenes/objects/trees/big_dark_green_tree.tscn" id="8_4juqx"]
 [ext_resource type="Resource" uid="uid://cy72ppb2bd423" path="res://playerHotbar.tres" id="8_b56be"]
+[ext_resource type="PackedScene" uid="uid://beipb83svuvud" path="res://scenes/objects/trees/big_green_tree.tscn" id="9_4ovow"]
 [ext_resource type="PackedScene" uid="uid://ccbf5lkb40kmt" path="res://Resources/flower.tscn" id="9_vmank"]
 [ext_resource type="PackedScene" uid="uid://48v5vhuoh0hn" path="res://flower_seed_purple.tscn" id="10_l7g3u"]
 [ext_resource type="PackedScene" uid="uid://05h5nvupgmnj" path="res://scenes/objects/trees/small_tree.tscn" id="11_ol4p0"]
 [ext_resource type="PackedScene" uid="uid://crm08ijdbv4to" path="res://flower_seed_white.tscn" id="11_rswja"]
 [ext_resource type="PackedScene" uid="uid://c0w5rtfp06teq" path="res://growing_zone.tscn" id="12_vy1rd"]
 [ext_resource type="PackedScene" uid="uid://drsuvii6vemkv" path="res://HUD.tscn" id="13_rswja"]
+[ext_resource type="PackedScene" uid="uid://dqir1o0dio14i" path="res://scenes/objects/stones/big_stone.tscn" id="14_4ovow"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ia1h2"]
 texture = ExtResource("1_drles")
@@ -7056,6 +7063,60 @@ texture = ExtResource("2_b56be")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1rdvk")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xulbr"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qyhi"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bgh1"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yt735"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nfcxq"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3t5i1"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3o4h"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pvco7"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gd8da"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbjk8"]
 texture = ExtResource("2_b56be")
 0:0/0 = 0
@@ -7938,7 +7999,40 @@ tile_set = SubResource("TileSet_b56be")
 y_sort_enabled = true
 
 [node name="SmallTree" parent="env/Trees" unique_id=969450165 instance=ExtResource("11_ol4p0")]
+material = SubResource("ShaderMaterial_xulbr")
 position = Vector2(178, 94)
+
+[node name="purple_tree" parent="env/Trees" unique_id=520402099 instance=ExtResource("5_l7g3u")]
+material = SubResource("ShaderMaterial_3qyhi")
+position = Vector2(315, 137)
+
+[node name="SmallTree2" parent="env/Trees" unique_id=1824425508 instance=ExtResource("11_ol4p0")]
+material = SubResource("ShaderMaterial_7bgh1")
+position = Vector2(158, 102)
+
+[node name="purple_tree2" parent="env/Trees" unique_id=730549892 instance=ExtResource("5_l7g3u")]
+material = SubResource("ShaderMaterial_yt735")
+position = Vector2(339, 144)
+
+[node name="small_dark_green_tree" parent="env/Trees" unique_id=321061389 instance=ExtResource("6_rswja")]
+material = SubResource("ShaderMaterial_nfcxq")
+position = Vector2(180, 150)
+
+[node name="big_purple_tree" parent="env/Trees" unique_id=1972974709 instance=ExtResource("7_b56be")]
+material = SubResource("ShaderMaterial_3t5i1")
+position = Vector2(95, 96)
+
+[node name="big_dark_green_tree" parent="env/Trees" unique_id=239562838 instance=ExtResource("8_4juqx")]
+material = SubResource("ShaderMaterial_x3o4h")
+position = Vector2(65, 81)
+
+[node name="big_green_tree" parent="env/Trees" unique_id=2001494099 instance=ExtResource("9_4ovow")]
+material = SubResource("ShaderMaterial_pvco7")
+position = Vector2(93, 50)
+
+[node name="small_purple_tree" parent="env/Trees" unique_id=365807502 instance=ExtResource("5_l7g3u")]
+material = SubResource("ShaderMaterial_gd8da")
+position = Vector2(291, 139)
 
 [node name="Player" parent="env" unique_id=295266339 instance=ExtResource("2_h4chw")]
 z_index = 2
@@ -7952,6 +8046,11 @@ y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAAdAAEAAQATAAoAAAAdAAIAAQATAAsAAAAdAAMAAQATAAwAAAAdAAQAAQATAA0AAAAdAAUAAQATAA4AAAAeAAEAAQAUAAoAAAAeAAIAAQAUAAsAAAAeAAMAAQAUAAwAAAAeAAQAAQAUAA0AAAAeAAUAAQAUAA4AAAAfAAEAAQAVAAoAAAAfAAIAAQAVAAsAAAAfAAMAAQAVAAwAAAAfAAQAAQAVAA0AAAAfAAUAAQAVAA4AAAAgAAEAAQAWAAoAAAAgAAIAAQAWAAsAAAAgAAMAAQAWAAwAAAAgAAQAAQAWAA0AAAAgAAUAAQAWAA4AAAAhAAIAAQAXAAsAAAAhAAMAAQAXAAwAAAAhAAQAAQAXAA0AAAAhAAUAAQAXAA4AAAAZAA4AAQAdABoAAAAZAA8AAQAdABsAAAAaAA4AAQAeABoAAAAaAA8AAQAeABsAAAA/AAcAAQAOABAAAAA/AAgAAQAOABEAAAA/AAkAAQAOABIAAAA/AAoAAQAOABMAAABAAAYAAQAPAA8AAABAAAcAAQAPABAAAABAAAgAAQAPABEAAABAAAkAAQAPABIAAABAAAoAAQAPABMAAABBAAYAAQAQAA8AAABBAAcAAQAQABAAAABBAAgAAQAQABEAAABBAAkAAQAQABIAAABBAAoAAQAQABMAAABCAAYAAQARAA8AAABCAAcAAQARABAAAABCAAgAAQARABEAAABCAAkAAQARABIAAABCAAoAAQARABMAAABDAAcAAQASABAAAABDAAgAAQASABEAAABDAAkAAQASABIAAABDAAoAAQASABMAAAAzAA8AAQATABAAAAAzABAAAQATABEAAAAzABEAAQATABIAAAAzABIAAQATABMAAAA0AA4AAQAUAA8AAAA0AA8AAQAUABAAAAA0ABAAAQAUABEAAAA0ABEAAQAUABIAAAA0ABIAAQAUABMAAAA1AA4AAQAVAA8AAAA1AA8AAQAVABAAAAA1ABAAAQAVABEAAAA1ABEAAQAVABIAAAA1ABIAAQAVABMAAAA2AA4AAQAWAA8AAAA2AA8AAQAWABAAAAA2ABAAAQAWABEAAAA2ABEAAQAWABIAAAA2ABIAAQAWABMAAAA3AA8AAQAXABAAAAA3ABAAAQAXABEAAAA3ABEAAQAXABIAAAA3ABIAAQAXABMAAAA=")
 tile_set = SubResource("TileSet_ol4p0")
+
+[node name="Stones" type="Node2D" parent="env" unique_id=122662154]
+
+[node name="big_stone" parent="env/Stones" unique_id=1790456301 instance=ExtResource("14_4ovow")]
+position = Vector2(228, 182)
 
 [node name="Node2D" parent="." unique_id=1730617722 instance=ExtResource("9_vmank")]
 visible = false

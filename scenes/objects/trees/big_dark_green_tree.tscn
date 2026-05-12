@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b0e1cusnxvnbn"]
+
+[ext_resource type="Texture2D" uid="uid://dkhk8buo4ptxq" path="res://RPG tileset (full)-export.png" id="1_bxue6"]
+[ext_resource type="Shader" uid="uid://cj4ktjd03pwyc" path="res://scenes/objects/trees/tree_shader.gdshader" id="1_epcaq"]
+[ext_resource type="PackedScene" uid="uid://cvbn6aa1darw3" path="res://scenes/components/hurt_component.tscn" id="2_c7021"]
+[ext_resource type="Script" uid="uid://d0l3003aqckap" path="res://scenes/objects/trees/big_dark_green_tree.gd" id="2_epcaq"]
+[ext_resource type="PackedScene" uid="uid://dqy6nfhf2t0a5" path="res://scenes/components/damage_component.tscn" id="3_epcaq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kamgn"]
+resource_local_to_scene = true
+shader = ExtResource("1_epcaq")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kamgn"]
+atlas = ExtResource("1_bxue6")
+region = Rect2(82.15881, 95.74662, 28.616547, 32.488243)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kndtx"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46q04"]
+size = Vector2(19, 20)
+
+[node name="big_dark_green_tree" type="Sprite2D" unique_id=239562838]
+z_index = 2
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_kamgn")
+texture = SubResource("AtlasTexture_kamgn")
+script = ExtResource("2_epcaq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=27503703]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1568219989]
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_kndtx")
+
+[node name="HurtComponent" parent="." unique_id=1667428044 instance=ExtResource("2_c7021")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1125892294]
+shape = SubResource("RectangleShape2D_46q04")
+debug_color = Color(0.9112337, 0.18576485, 0.5783172, 0.41960785)
+
+[node name="DamageComponent" parent="." unique_id=473824611 instance=ExtResource("3_epcaq")]
+max_damage = 6

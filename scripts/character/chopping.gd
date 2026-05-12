@@ -1,0 +1,44 @@
+extends NodeState
+
+@export var player: Player
+@export var animated_sprite_2d: AnimatedSprite2D
+@export var hit_component_collision_shape: CollisionShape2D
+
+var direction: Vector2
+
+func _ready() -> void:
+	hit_component_collision_shape.disabled = true
+	hit_component_collision_shape.position = Vector2(0,0)
+	
+func _on_process(delta: float):
+	pass
+	
+func _on_physics_process(_delta: float) -> void:
+	pass
+	
+func _on_next_transition() -> void:
+	if !animated_sprite_2d.is_playing():
+		transition.emit("Idle")
+
+func _on_enter() -> void:
+	if player.player_direction == Vector2.UP:
+		animated_sprite_2d.play("chopping_up")
+		hit_component_collision_shape.position = Vector2(0,-16)
+	elif player.player_direction == Vector2.RIGHT:
+		animated_sprite_2d.play("chopping_right")
+		hit_component_collision_shape.position = Vector2(16,0)
+	elif player.player_direction == Vector2.LEFT:
+		animated_sprite_2d.play("chopping_left")
+		hit_component_collision_shape.position = Vector2(-16,0)
+	elif player.player_direction == Vector2.DOWN:
+		animated_sprite_2d.play("chopping_down")
+		hit_component_collision_shape.position = Vector2(0,7)
+	else:
+		animated_sprite_2d.play("chopping_down")
+	
+	hit_component_collision_shape.disabled = false
+		
+
+func _on_exit() -> void:
+	animated_sprite_2d.stop()
+	hit_component_collision_shape.disabled = true

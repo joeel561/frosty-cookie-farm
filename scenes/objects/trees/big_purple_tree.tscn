@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dmrsiioqluman"]
+
+[ext_resource type="Texture2D" uid="uid://dkhk8buo4ptxq" path="res://RPG tileset (full)-export.png" id="1_q6phi"]
+[ext_resource type="Shader" uid="uid://cj4ktjd03pwyc" path="res://scenes/objects/trees/tree_shader.gdshader" id="1_rwoy3"]
+[ext_resource type="Script" uid="uid://ce1603f23monk" path="res://scenes/objects/trees/big_purple_tree.gd" id="2_k0yj2"]
+[ext_resource type="PackedScene" uid="uid://cvbn6aa1darw3" path="res://scenes/components/hurt_component.tscn" id="2_qpj1q"]
+[ext_resource type="PackedScene" uid="uid://dqy6nfhf2t0a5" path="res://scenes/components/damage_component.tscn" id="3_qpj1q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dr3ia"]
+resource_local_to_scene = true
+shader = ExtResource("1_rwoy3")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0yj2"]
+atlas = ExtResource("1_q6phi")
+region = Rect2(114.4415, 63.74957, 27.338547, 32.554462)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwoy3"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr3ia"]
+size = Vector2(18, 20)
+
+[node name="big_purple_tree" type="Sprite2D" unique_id=1972974709]
+z_index = 2
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_dr3ia")
+position = Vector2(0, -10)
+texture = SubResource("AtlasTexture_k0yj2")
+script = ExtResource("2_k0yj2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1338177605]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=268708530]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_rwoy3")
+
+[node name="HurtComponent" parent="." unique_id=1667428044 instance=ExtResource("2_qpj1q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1036129354]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_dr3ia")
+debug_color = Color(0.8996869, 0.21767929, 0.5691024, 0.41960785)
+
+[node name="DamageComponent" parent="." unique_id=473824611 instance=ExtResource("3_qpj1q")]
+max_damage = 6

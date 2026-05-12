@@ -16,7 +16,11 @@ static func movement_input() -> Vector2:
 	
 	return direction
 
+static func use_tool() -> bool:
+	var use_tool_value: bool = Input.is_action_pressed("hit")
 
+	return use_tool_value
+	
 static  func  is_movement_input() -> bool:
 	if direction == Vector2.ZERO:
 		return false
