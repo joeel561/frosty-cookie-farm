@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://clmq4ul8761bb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j5yl6"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Chicken" type="CharacterBody2D" unique_id=68770260]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=415997288]
+sprite_frames = SubResource("SpriteFrames_j5yl6")
+animation = &"idle"
+autoplay = "idle"

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnbdt4nha6e1h" path="res://RPG tileset (full).png" id="2_b56be"]
 [ext_resource type="PackedScene" uid="uid://qpjb5ett6scc" path="res://player.tscn" id="2_h4chw"]
 [ext_resource type="PackedScene" uid="uid://lp33in04dqqr" path="res://scenes/objects/trees/small_purple_tree.tscn" id="5_l7g3u"]
-[ext_resource type="Shader" uid="uid://cj4ktjd03pwyc" path="res://scenes/objects/trees/tree_shader.gdshader" id="6_4juqx"]
+[ext_resource type="Shader" uid="uid://cj4ktjd03pwyc" path="res://scenes/objects/shake.gdshader" id="6_4juqx"]
 [ext_resource type="PackedScene" uid="uid://3b08dc1kpxyw" path="res://scenes/objects/trees/small_dark_green_tree.tscn" id="6_rswja"]
 [ext_resource type="Resource" uid="uid://bg04808q25l4i" path="res://Resources/playerInv.tres" id="7_1rdvk"]
 [ext_resource type="PackedScene" uid="uid://dmrsiioqluman" path="res://scenes/objects/trees/big_purple_tree.tscn" id="7_b56be"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c0w5rtfp06teq" path="res://growing_zone.tscn" id="12_vy1rd"]
 [ext_resource type="PackedScene" uid="uid://drsuvii6vemkv" path="res://HUD.tscn" id="13_rswja"]
 [ext_resource type="PackedScene" uid="uid://dqir1o0dio14i" path="res://scenes/objects/stones/big_stone.tscn" id="14_4ovow"]
+[ext_resource type="PackedScene" uid="uid://coef78af2yhl4" path="res://scenes/objects/stones/small_stone.tscn" id="15_xulbr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ia1h2"]
 texture = ExtResource("1_drles")
@@ -8051,6 +8052,9 @@ tile_set = SubResource("TileSet_ol4p0")
 
 [node name="big_stone" parent="env/Stones" unique_id=1790456301 instance=ExtResource("14_4ovow")]
 position = Vector2(228, 182)
+
+[node name="small_stone" parent="env/Stones" unique_id=63892758 instance=ExtResource("15_xulbr")]
+position = Vector2(248, 197)
 
 [node name="Node2D" parent="." unique_id=1730617722 instance=ExtResource("9_vmank")]
 visible = false

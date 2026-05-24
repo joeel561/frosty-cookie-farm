@@ -1,23 +1,32 @@
 [gd_scene format=3 uid="uid://dqir1o0dio14i"]
 
 [ext_resource type="Texture2D" uid="uid://dkhk8buo4ptxq" path="res://RPG tileset (full)-export.png" id="1_jri35"]
+[ext_resource type="Shader" uid="uid://cj4ktjd03pwyc" path="res://scenes/objects/shake.gdshader" id="1_v8yax"]
 [ext_resource type="PackedScene" uid="uid://cvbn6aa1darw3" path="res://scenes/components/hurt_component.tscn" id="2_hkwjw"]
 [ext_resource type="Script" uid="uid://combrnbbcbjh2" path="res://scenes/objects/stones/big_stone.gd" id="2_tyh6e"]
 [ext_resource type="PackedScene" uid="uid://dqy6nfhf2t0a5" path="res://scenes/components/damage_component.tscn" id="4_tyh6e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u2txt"]
+shader = ExtResource("1_v8yax")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tyh6e"]
 atlas = ExtResource("1_jri35")
 region = Rect2(127.74904, -0.083143234, 17.162476, 15.636919)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8yax"]
-radius = 3.0
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u2txt"]
 radius = 8.0
 
 [node name="big_stone" type="Sprite2D" unique_id=1790456301]
+z_index = 2
 y_sort_enabled = true
 texture_filter = 1
+material = SubResource("ShaderMaterial_u2txt")
+position = Vector2(0, -7)
 texture = SubResource("AtlasTexture_tyh6e")
 script = ExtResource("2_tyh6e")
 
@@ -27,10 +36,13 @@ script = ExtResource("2_tyh6e")
 shape = SubResource("CircleShape2D_v8yax")
 
 [node name="HurtComponent" parent="." unique_id=1667428044 instance=ExtResource("2_hkwjw")]
+position = Vector2(-1, 7)
 
 [node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=2068602641]
+position = Vector2(1, -7)
 shape = SubResource("CircleShape2D_u2txt")
 debug_color = Color(0.8592511, 0.23993027, 0.6848016, 0.41960785)
 
 [node name="DamageComponent" parent="." unique_id=473824611 instance=ExtResource("4_tyh6e")]
+position = Vector2(0, -7)
 max_damage = 3

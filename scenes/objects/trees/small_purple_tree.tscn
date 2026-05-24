@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lp33in04dqqr"]
 
 [ext_resource type="Texture2D" uid="uid://dkhk8buo4ptxq" path="res://RPG tileset (full)-export.png" id="1_1k43c"]
-[ext_resource type="Shader" uid="uid://cj4ktjd03pwyc" path="res://scenes/objects/trees/tree_shader.gdshader" id="1_ppect"]
+[ext_resource type="Shader" uid="uid://cj4ktjd03pwyc" path="res://scenes/objects/shake.gdshader" id="1_ppect"]
 [ext_resource type="PackedScene" uid="uid://cvbn6aa1darw3" path="res://scenes/components/hurt_component.tscn" id="2_r12qb"]
 [ext_resource type="Script" uid="uid://elcicbvfkdu5" path="res://scenes/objects/trees/small_purple_tree.gd" id="2_urdi6"]
 [ext_resource type="PackedScene" uid="uid://dqy6nfhf2t0a5" path="res://scenes/components/damage_component.tscn" id="3_250l0"]
@@ -23,6 +23,8 @@ radius = 4.0
 size = Vector2(14, 20)
 
 [node name="small_purple_tree" type="Sprite2D" unique_id=520402099]
+z_index = 2
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_ftrhe")
 position = Vector2(0, -12)
 texture = SubResource("AtlasTexture_r12qb")
