@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://drsuvii6vemkv" path="res://HUD.tscn" id="13_rswja"]
 [ext_resource type="PackedScene" uid="uid://dqir1o0dio14i" path="res://scenes/objects/stones/big_stone.tscn" id="14_4ovow"]
 [ext_resource type="PackedScene" uid="uid://coef78af2yhl4" path="res://scenes/objects/stones/small_stone.tscn" id="15_xulbr"]
+[ext_resource type="PackedScene" uid="uid://clmq4ul8761bb" path="res://scenes/characters/chicken/chicken.tscn" id="20_3qyhi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ia1h2"]
 texture = ExtResource("1_drles")
@@ -7064,12 +7065,6 @@ texture = ExtResource("2_b56be")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1rdvk")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xulbr"]
-resource_local_to_scene = true
-shader = ExtResource("6_4juqx")
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3qyhi"]
 resource_local_to_scene = true
 shader = ExtResource("6_4juqx")
@@ -7113,6 +7108,12 @@ shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gd8da"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oopy7"]
 resource_local_to_scene = true
 shader = ExtResource("6_4juqx")
 shader_parameter/shake_intensity = 0.0
@@ -7944,6 +7945,11 @@ texture = ExtResource("2_b56be")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_tbjk8")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dgodq"]
+vertices = PackedVector2Array(480.46875, 95.86719, 583.21094, 108.921875, 446.82813, 217.35156, 369.14063, 158.85156, 268.7578, 163.39844, 297.6172, 40.992188, 360.4375, 11.4921875, 475.17188, -1.3984375, 436.39063, -52.5625)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5, 6, 7), PackedInt32Array(8, 7, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(289, 34, 355, 3, 438, -67, 485, -5, 490, 87, 608, 102, 447, 230, 366, 169, 256, 174)])
+
 [node name="FrostyCookieFarm" type="Node2D" unique_id=853711439]
 
 [node name="Water" type="TileMapLayer" parent="." unique_id=1583909074]
@@ -8000,39 +8006,39 @@ tile_set = SubResource("TileSet_b56be")
 y_sort_enabled = true
 
 [node name="SmallTree" parent="env/Trees" unique_id=969450165 instance=ExtResource("11_ol4p0")]
-material = SubResource("ShaderMaterial_xulbr")
+material = SubResource("ShaderMaterial_3qyhi")
 position = Vector2(178, 94)
 
 [node name="purple_tree" parent="env/Trees" unique_id=520402099 instance=ExtResource("5_l7g3u")]
-material = SubResource("ShaderMaterial_3qyhi")
+material = SubResource("ShaderMaterial_7bgh1")
 position = Vector2(315, 137)
 
 [node name="SmallTree2" parent="env/Trees" unique_id=1824425508 instance=ExtResource("11_ol4p0")]
-material = SubResource("ShaderMaterial_7bgh1")
+material = SubResource("ShaderMaterial_yt735")
 position = Vector2(158, 102)
 
 [node name="purple_tree2" parent="env/Trees" unique_id=730549892 instance=ExtResource("5_l7g3u")]
-material = SubResource("ShaderMaterial_yt735")
+material = SubResource("ShaderMaterial_nfcxq")
 position = Vector2(339, 144)
 
 [node name="small_dark_green_tree" parent="env/Trees" unique_id=321061389 instance=ExtResource("6_rswja")]
-material = SubResource("ShaderMaterial_nfcxq")
+material = SubResource("ShaderMaterial_3t5i1")
 position = Vector2(180, 150)
 
 [node name="big_purple_tree" parent="env/Trees" unique_id=1972974709 instance=ExtResource("7_b56be")]
-material = SubResource("ShaderMaterial_3t5i1")
+material = SubResource("ShaderMaterial_x3o4h")
 position = Vector2(95, 96)
 
 [node name="big_dark_green_tree" parent="env/Trees" unique_id=239562838 instance=ExtResource("8_4juqx")]
-material = SubResource("ShaderMaterial_x3o4h")
+material = SubResource("ShaderMaterial_pvco7")
 position = Vector2(65, 81)
 
 [node name="big_green_tree" parent="env/Trees" unique_id=2001494099 instance=ExtResource("9_4ovow")]
-material = SubResource("ShaderMaterial_pvco7")
+material = SubResource("ShaderMaterial_gd8da")
 position = Vector2(93, 50)
 
 [node name="small_purple_tree" parent="env/Trees" unique_id=365807502 instance=ExtResource("5_l7g3u")]
-material = SubResource("ShaderMaterial_gd8da")
+material = SubResource("ShaderMaterial_oopy7")
 position = Vector2(291, 139)
 
 [node name="Player" parent="env" unique_id=295266339 instance=ExtResource("2_h4chw")]
@@ -8055,6 +8061,33 @@ position = Vector2(228, 182)
 
 [node name="small_stone" parent="env/Stones" unique_id=63892758 instance=ExtResource("15_xulbr")]
 position = Vector2(248, 197)
+
+[node name="Chickens" type="Node2D" parent="." unique_id=77237876]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Chickens" unique_id=1000766969]
+position = Vector2(101, 353)
+navigation_polygon = SubResource("NavigationPolygon_dgodq")
+
+[node name="Chicken" parent="Chickens" unique_id=68770260 instance=ExtResource("20_3qyhi")]
+position = Vector2(466, 435)
+
+[node name="Chicken2" parent="Chickens" unique_id=1937244419 instance=ExtResource("20_3qyhi")]
+position = Vector2(462, 467)
+
+[node name="Chicken3" parent="Chickens" unique_id=2045530226 instance=ExtResource("20_3qyhi")]
+position = Vector2(433, 445)
+
+[node name="Chicken4" parent="Chickens" unique_id=1220603861 instance=ExtResource("20_3qyhi")]
+position = Vector2(502, 430)
+
+[node name="Chicken5" parent="Chickens" unique_id=1645206457 instance=ExtResource("20_3qyhi")]
+position = Vector2(513, 412)
+
+[node name="Chicken6" parent="Chickens" unique_id=1352130279 instance=ExtResource("20_3qyhi")]
+position = Vector2(498, 475)
+
+[node name="Chicken7" parent="Chickens" unique_id=478199240 instance=ExtResource("20_3qyhi")]
+position = Vector2(422, 418)
 
 [node name="Node2D" parent="." unique_id=1730617722 instance=ExtResource("9_vmank")]
 visible = false
