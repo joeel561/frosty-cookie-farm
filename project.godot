@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
+[global_group]
+
+navigation_polygon_source_geometry_group=""
+
 [input]
 
 move_left={
@@ -139,10 +143,13 @@ hit={
 2d_physics/layer_1="Player"
 2d_navigation/layer_1="ChickenNavigation"
 2d_physics/layer_2="Gegner"
+2d_navigation/layer_2="CowNavigation"
 2d_physics/layer_3="Level"
+2d_navigation/layer_3="MushroomNavigation"
 2d_physics/layer_4="Items"
 2d_physics/layer_5="Object"
 2d_physics/layer_6="Tool"
+2d_physics/layer_7="NPC"
 
 [rendering]
 
