@@ -1,0 +1,66 @@
+[gd_resource type="Theme" format=3 uid="uid://csx7o5iss4oen"]
+
+[ext_resource type="Texture2D" uid="uid://b18rtny55q63g" path="res://Resources/ui/basic_ui_sprites.png" id="1_nhbk8"]
+[ext_resource type="Texture2D" uid="uid://cflrvoudq43rx" path="res://Resources/ui/slot_hover.png" id="2_68i34"]
+[ext_resource type="Texture2D" uid="uid://cccsgqdshsc7y" path="res://Resources/ui/slot_disabled.png" id="2_cqa1q"]
+[ext_resource type="Texture2D" uid="uid://rjcfhwood4yf" path="res://Resources/ui/slot_active.png" id="3_mtjyl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68i34"]
+atlas = ExtResource("1_nhbk8")
+region = Rect2(434, 1, 44, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mtjyl"]
+texture = SubResource("AtlasTexture_68i34")
+texture_margin_left = 8.0
+texture_margin_top = 10.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 0, 44, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r32iy"]
+atlas = ExtResource("2_cqa1q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3405b"]
+texture = SubResource("AtlasTexture_r32iy")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mtjyl"]
+load_path = "res://.godot/imported/slot_hover.png-272f2280cb69129bb7f38e0cbb38c927.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hvfw"]
+atlas = SubResource("CompressedTexture2D_mtjyl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w57q2"]
+texture = SubResource("AtlasTexture_1hvfw")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtjyl"]
+atlas = ExtResource("2_68i34")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqa1q"]
+texture = SubResource("AtlasTexture_mtjyl")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhbk8"]
+atlas = ExtResource("1_nhbk8")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r32iy"]
+texture = SubResource("AtlasTexture_nhbk8")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqa1q"]
+atlas = ExtResource("3_mtjyl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1hvfw"]
+texture = SubResource("AtlasTexture_cqa1q")
+
+[resource]
+DarkWoodPanel/base_type = &"PanelContainer"
+DarkWoodPanel/styles/panel = SubResource("StyleBoxTexture_mtjyl")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+ToolButton/base_type = &"Button"
+ToolButton/styles/disabled = SubResource("StyleBoxTexture_3405b")
+ToolButton/styles/focus = SubResource("StyleBoxTexture_w57q2")
+ToolButton/styles/hover = SubResource("StyleBoxTexture_cqa1q")
+ToolButton/styles/normal = SubResource("StyleBoxTexture_r32iy")
+ToolButton/styles/pressed = SubResource("StyleBoxTexture_1hvfw")
