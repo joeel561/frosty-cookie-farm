@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://uh28ln7naq7l"]
 
 [ext_resource type="Theme" uid="uid://csx7o5iss4oen" path="res://scenes/ui/game_ui_theme.tres" id="1_2yiqu"]
+[ext_resource type="Texture2D" uid="uid://dkhk8buo4ptxq" path="res://RPG tileset (full)-export.png" id="2_xkgdf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7ivs"]
+atlas = ExtResource("2_xkgdf")
 
 [node name="ToolsPanel" type="PanelContainer" unique_id=1844244757]
 offset_right = 62.0
@@ -18,3 +22,4 @@ layout_mode = 2
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 theme_type_variation = &"ToolButton"
+icon = SubResource("AtlasTexture_a7ivs")
