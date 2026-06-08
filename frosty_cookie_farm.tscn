@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://coef78af2yhl4" path="res://scenes/objects/stones/small_stone.tscn" id="15_xulbr"]
 [ext_resource type="PackedScene" uid="uid://bn8y43fll83hb" path="res://scenes/characters/mushroom/mushroom.tscn" id="18_yt735"]
 [ext_resource type="PackedScene" uid="uid://clmq4ul8761bb" path="res://scenes/characters/chicken/chicken.tscn" id="20_3qyhi"]
+[ext_resource type="PackedScene" uid="uid://fbbgyfs184n3" path="res://scenes/ui/game_screen.tscn" id="23_nfcxq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ia1h2"]
 texture = ExtResource("1_drles")
@@ -7070,18 +7071,6 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_7bgh1")
 sources/0 = SubResource("TileSetAtlasSource_1rdvk")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bgh1"]
-resource_local_to_scene = true
-shader = ExtResource("6_4juqx")
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yt735"]
-resource_local_to_scene = true
-shader = ExtResource("6_4juqx")
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nfcxq"]
 resource_local_to_scene = true
 shader = ExtResource("6_4juqx")
@@ -7119,6 +7108,18 @@ shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dgodq"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njkok"]
+resource_local_to_scene = true
+shader = ExtResource("6_4juqx")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4r04p"]
 resource_local_to_scene = true
 shader = ExtResource("6_4juqx")
 shader_parameter/shake_intensity = 0.0
@@ -8023,39 +8024,39 @@ tile_set = SubResource("TileSet_b56be")
 y_sort_enabled = true
 
 [node name="SmallTree" parent="env/Trees" unique_id=969450165 instance=ExtResource("11_ol4p0")]
-material = SubResource("ShaderMaterial_7bgh1")
+material = SubResource("ShaderMaterial_nfcxq")
 position = Vector2(178, 94)
 
 [node name="purple_tree" parent="env/Trees" unique_id=520402099 instance=ExtResource("5_l7g3u")]
-material = SubResource("ShaderMaterial_yt735")
+material = SubResource("ShaderMaterial_3t5i1")
 position = Vector2(315, 137)
 
 [node name="SmallTree2" parent="env/Trees" unique_id=1824425508 instance=ExtResource("11_ol4p0")]
-material = SubResource("ShaderMaterial_nfcxq")
+material = SubResource("ShaderMaterial_x3o4h")
 position = Vector2(158, 102)
 
 [node name="purple_tree2" parent="env/Trees" unique_id=730549892 instance=ExtResource("5_l7g3u")]
-material = SubResource("ShaderMaterial_3t5i1")
+material = SubResource("ShaderMaterial_pvco7")
 position = Vector2(339, 144)
 
 [node name="small_dark_green_tree" parent="env/Trees" unique_id=321061389 instance=ExtResource("6_rswja")]
-material = SubResource("ShaderMaterial_x3o4h")
+material = SubResource("ShaderMaterial_gd8da")
 position = Vector2(180, 150)
 
 [node name="big_purple_tree" parent="env/Trees" unique_id=1972974709 instance=ExtResource("7_b56be")]
-material = SubResource("ShaderMaterial_pvco7")
+material = SubResource("ShaderMaterial_oopy7")
 position = Vector2(95, 96)
 
 [node name="big_dark_green_tree" parent="env/Trees" unique_id=239562838 instance=ExtResource("8_4juqx")]
-material = SubResource("ShaderMaterial_gd8da")
+material = SubResource("ShaderMaterial_dgodq")
 position = Vector2(65, 81)
 
 [node name="big_green_tree" parent="env/Trees" unique_id=2001494099 instance=ExtResource("9_4ovow")]
-material = SubResource("ShaderMaterial_oopy7")
+material = SubResource("ShaderMaterial_njkok")
 position = Vector2(93, 50)
 
 [node name="small_purple_tree" parent="env/Trees" unique_id=365807502 instance=ExtResource("5_l7g3u")]
-material = SubResource("ShaderMaterial_dgodq")
+material = SubResource("ShaderMaterial_4r04p")
 position = Vector2(291, 139)
 
 [node name="Cows" type="Node2D" parent="env" unique_id=81537583]
@@ -8129,3 +8130,6 @@ position = Vector2(210, 136)
 position = Vector2(225, 159)
 
 [node name="HUD" parent="." unique_id=1316735911 instance=ExtResource("13_rswja")]
+visible = false
+
+[node name="GameScreen" parent="." unique_id=973465077 instance=ExtResource("23_nfcxq")]

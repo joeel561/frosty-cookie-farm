@@ -40,18 +40,14 @@ func _on_physics_process(_delta: float) -> void:
 		if abs(velocity.x) > abs(velocity.y):
 			if velocity.x > 0:
 				animated_sprite_2d.play("walk_right")
-				print("rechts")
 			else:
 				animated_sprite_2d.play("walk_left")
-				print("links")
 		else:
 			if velocity.y > 0:
 				animated_sprite_2d.play("walk_down")
-				print("unten")
 			else:
 				animated_sprite_2d.play("walk_up")
-				print("oben")
-				
+			
 		navigation_agent_2d.velocity = velocity
 	else:
 		character.velocity = velocity

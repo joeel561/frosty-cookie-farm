@@ -1093,7 +1093,6 @@ radius = 3.0
 [node name="Player" type="CharacterBody2D" unique_id=554335594 groups=["player"]]
 collision_mask = 31
 script = ExtResource("1_onrkg")
-current_tool = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=45955528]
 texture_filter = 1
